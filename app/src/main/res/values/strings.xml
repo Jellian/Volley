@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Volley</string>
+    <string name="añadir" />
+    <string name="actualizar" />
+    <string name="delete" />
+    <string name="a_adir">añadir</string>
 </resources>
