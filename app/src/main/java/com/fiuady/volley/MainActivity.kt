@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         Username=findViewById(R.id.username)
 
         val jsonobj=JSONObject()
-        val url="https://quizapp-94e2.restdb.io/rest/usersgame?apikey=4ed1a1b9fe1c66b5df82ba8991f0e7c9a591d"
+        val url="https://quizapp-9447.restdb.io/rest/usersgame?apikey=80712b96a00656ac172af57f7829d7678c923"
         val queue=Volley.newRequestQueue(this)
 
 
