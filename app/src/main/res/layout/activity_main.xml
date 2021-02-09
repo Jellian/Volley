@@ -78,8 +78,10 @@
         android:text="Read"
         android:textColor="@color/black"
         android:textSize="18sp" />
+
     <ListView
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"/>
+        android:id="@+id/usuarios"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

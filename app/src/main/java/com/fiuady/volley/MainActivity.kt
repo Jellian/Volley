@@ -3,6 +3,7 @@ package com.fiuady.volley
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var Delete:Button
     private lateinit var Read:Button
     private lateinit var Username:EditText
+    private lateinit var Listausuarios:ListView
 
 
 
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         Delete=findViewById(R.id.delete)
         Read=findViewById(R.id.read)
         Username=findViewById(R.id.username)
+        Listausuarios=findViewById(R.id.usuarios)
 
         val jsonobj=JSONObject()
         val url="https://quizapp-9447.restdb.io/rest/usersgame?apikey=80712b96a00656ac172af57f7829d7678c923"
