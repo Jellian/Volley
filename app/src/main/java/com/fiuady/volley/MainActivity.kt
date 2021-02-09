@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         Username=findViewById(R.id.username)
 
         val jsonobj=JSONObject()
-        val url="https://quizapp-9447.restdb.io/rest/usersgame?apikey=80712b96a00656ac172af57f7829d7678c923"
+        val url="https://quizapp3-55aa.restdb.io/rest/usersgame?apikey=93197c60759dca33a6dd2862665a0f9a900b9"
         val queue=Volley.newRequestQueue(this)
 
 
@@ -42,13 +42,11 @@ class MainActivity : AppCompatActivity() {
 
         Update.setOnClickListener {
             jsonobj.put("id",Username.text)
-
             val req=JsonObjectRequest(Request.Method.PUT,url,jsonobj,Response.Listener {  },Response.ErrorListener {  })
             queue.add(req)
         }
 
         Delete.setOnClickListener {
-
             jsonobj.put("name",Username.text)
             val req=JsonObjectRequest(Request.Method.DELETE,url,jsonobj,Response.Listener {  },Response.ErrorListener {  })
             queue.add(req)
@@ -56,6 +54,10 @@ class MainActivity : AppCompatActivity() {
 
         Read.setOnClickListener {
             val StringRequest= StringRequest(Request.Method.GET, url, Response.Listener { response ->
+                val jsonArray=JSONArray(response)
+                val i= Username.text.toString().toInt()
+                val jsonObject=JSONObject(jsonArray.getString(i))
+                Text.text = jsonObject.get("name").toString()
             }, Response.ErrorListener {})
             queue.add(StringRequest)
         }
