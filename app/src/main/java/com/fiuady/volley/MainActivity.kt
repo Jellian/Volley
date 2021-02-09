@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         Update.setOnClickListener {
             jsonobj.put("id",Username.text)
-            jsonobj.put("name",)
+
             val req=JsonObjectRequest(Request.Method.PUT,url,jsonobj,Response.Listener {  },Response.ErrorListener {  })
             queue.add(req)
         }
