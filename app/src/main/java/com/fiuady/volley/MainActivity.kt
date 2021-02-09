@@ -1,17 +1,12 @@
 package com.fiuady.volley
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.HttpResponse
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
+import com.android.volley.toolbox.*
+import org.json.JSONArray
 import org.json.JSONObject
 
 
@@ -22,9 +17,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var Delete:Button
     private lateinit var Read:Button
     private lateinit var Username:EditText
-    private lateinit var Listausuarios:ListView
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         Delete=findViewById(R.id.delete)
         Read=findViewById(R.id.read)
         Username=findViewById(R.id.username)
-        Listausuarios=findViewById(R.id.usuarios)
 
         val jsonobj=JSONObject()
         val url="https://quizapp-9447.restdb.io/rest/usersgame?apikey=80712b96a00656ac172af57f7829d7678c923"
@@ -50,12 +41,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         Update.setOnClickListener {
+
             jsonobj.put("name",Username.text)
             val req=JsonObjectRequest(Request.Method.PUT,url,jsonobj,Response.Listener {  },Response.ErrorListener {  })
             queue.add(req)
         }
 
         Delete.setOnClickListener {
+
             jsonobj.put("name",Username.text)
             val req=JsonObjectRequest(Request.Method.DELETE,url,jsonobj,Response.Listener {  },Response.ErrorListener {  })
             queue.add(req)
@@ -63,13 +56,10 @@ class MainActivity : AppCompatActivity() {
 
         Read.setOnClickListener {
             val StringRequest= StringRequest(Request.Method.GET, url, Response.Listener { response ->
-                Username.text
-                Text.text = "${response}"
             }, Response.ErrorListener {})
             queue.add(StringRequest)
         }
 
-        
     }
 
 
