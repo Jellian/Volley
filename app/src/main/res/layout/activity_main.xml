@@ -18,7 +18,7 @@
            android:orientation="horizontal">
 
            <EditText
-               android:id="@+id/username"
+               android:id="@+id/iduser"
                android:layout_width="250dp"
                android:layout_height="wrap_content"
                android:layout_marginStart="10dp"
@@ -29,11 +29,10 @@
 
        <Button
            android:id="@+id/read"
-           android:layout_width="match_parent"
-           android:layout_marginLeft="40dp"
+           android:layout_width="wrap_content"
+           android:layout_marginLeft="20dp"
            android:layout_height="wrap_content"
            android:background="@drawable/button_one"
-           android:padding="15dp"
            android:text="search"
            android:textColor="@color/black"
            android:textSize="18sp" />
@@ -74,7 +73,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/user"
+            android:id="@+id/usernew"
             android:layout_gravity="center_horizontal"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
