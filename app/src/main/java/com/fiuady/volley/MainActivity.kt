@@ -35,16 +35,17 @@ class MainActivity : AppCompatActivity() {
         val url="https://quizapp3-55aa.restdb.io/rest/usersgame?apikey=93197c60759dca33a6dd2862665a0f9a900b9"
         val queue=Volley.newRequestQueue(this)
 
-
         Create.setOnClickListener {
-            jsonobj.put("name",Username.text)
+            jsonobj.put("name",create.text)
             val req=JsonObjectRequest(Request.Method.POST,url,jsonobj,Response.Listener {  },Response.ErrorListener {  })
             queue.add(req)
         }
 
         Update.setOnClickListener {
-            jsonobj.put("id", create.text)
-            val req=JsonObjectRequest(Request.Method.PUT,url,jsonobj,Response.Listener {  },Response.ErrorListener {  })
+            jsonobj.put("name", create.text)
+            val id=Username.text
+            val urlupdate="https://quizapp3-55aa.restdb.io/rest/usersgame/$id?apikey=93197c60759dca33a6dd2862665a0f9a900b9"
+            val req=JsonObjectRequest(Request.Method.PUT,urlupdate,jsonobj,Response.Listener {  },Response.ErrorListener {  })
             queue.add(req)
         }
 
@@ -61,17 +62,6 @@ class MainActivity : AppCompatActivity() {
             val StringRequest= StringRequest(Request.Method.GET, urlget, Response.Listener { response ->
                 val jsonObject=JSONObject(response)
                 Text.text = jsonObject.get("name").toString()
-
-                /*var y=0
-                val jsonArray= JSONArray(response)
-                val i= Username.text.toString().toInt()
-                val jsonObject=JSONObject(jsonArray.getString(i))
-                while(y <  jsonArray.length() ){
-                    if(i.toString()==JSONObject(jsonObject.toString(y)).getString("id")){
-                        Text.text=JSONObject(jsonObject.toString(y)).getString("id")
-                    }
-                    y++
-                }*/
             }, Response.ErrorListener {})
             queue.add(StringRequest)
         }
